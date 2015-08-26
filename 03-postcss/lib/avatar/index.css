@@ -1,0 +1,17 @@
+@import "../base.css";
+
+.container {
+  position: absolute;
+  width: var(--pageWidth);
+  top: calc(var(--coverHeight) - (var(--avatarSize)/2));
+}
+.img {
+  position: absolute;
+  height: var(--avatarSize);
+  width: var(--avatarSize);
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
