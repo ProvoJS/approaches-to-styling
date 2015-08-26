@@ -1,0 +1,18 @@
+@import "../base.css";
+@import "../globals.css";
+
+.container {
+  color: #929292;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
+  width: var(--pageWidth);
+  min-width: var(--pageWidth);
+}
+.main {
+  height: 100%;
+  background-color: #F2F2F5;
+  padding-top: calc((var(--avatarSize)/2) + 20px);
+}

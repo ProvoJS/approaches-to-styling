@@ -1,0 +1,17 @@
+.container {
+  padding: 0 45px;
+  margin-bottom: 80px;
+}
+.title {
+  margin: 50px 0;
+}
+.img {
+  height: 30px;
+  vertical-align: bottom;
+}
+.newList {
+  list-style: none;
+}
+.stackItem {
+  margin-bottom: 15px;
+}
