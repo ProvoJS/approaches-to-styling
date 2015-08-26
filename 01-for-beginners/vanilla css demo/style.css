@@ -1,0 +1,61 @@
+body{
+	color:#8A8A8A;
+	font-family: 'Arial';
+	background: #E6E6E6;
+
+}
+
+.cover{
+	border-bottom: solid 1px #8A8A8A;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	font-size: 18px;
+}
+
+.title{
+	font-size: 20px;
+}
+
+.name{
+	text-align: center;
+	font-size: 25px;
+	height: 105px;
+	line-height: 105px;
+}
+
+.textBodies{
+	font-size:18px;
+	margin-left: 15px;
+}
+
+.banner{
+	border-bottom: solid gray 1px;
+	background: url(cool-space-pictures.jpg) no-repeat;
+	height: 300px;
+	width: 100%;
+	color:white;
+}
+
+.pic{
+	height: 200px;
+	width: 200px;
+	border: solid gray 1px;
+	border-radius: 9999px;
+	margin-left: auto;
+	margin-right: auto;
+	background:url(astronaut.png) no-repeat;
+	background-size:100% 100%; 
+	position:relative;
+	margin-top: -40px;
+	z-index: 1;
+}
+
+.banner p{
+	padding-top: 100px;
+	padding-left:75px;
+	margin: auto;
+	font-size: 60px;
+	vertical-align: center;
+	line-height: 25px;
+}

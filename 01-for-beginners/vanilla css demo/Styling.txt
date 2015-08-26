@@ -1,0 +1,178 @@
+Styling
+=======
+
+The approach to styling borrows heavily from 2 design philosophies:
+- [itcss](https://www.youtube.com/watch?v=1OKZOV-iLj4)
+- [atomic design](http://bradfrost.com/blog/post/atomic-web-design/)
+
+#itcss
+Styling is organized by [specificity layers](http://csswizardry.com/2014/10/the-specificity-graph/) from widespread reach and applicabilty with variables, mixins, & resets to very targeted styling with targeted .classes & helpers (!important):
+
+SETTINGS -> TOOLS -> GENERIC -> BASE -> OBJECTS -> COMPONENTS -> TRUMPS
+
+####1. SETTINGS
+Primarily different categories of variables (should *not* produce any CSS) such as:
++ colors
++ typography
++ z-indexing
++ other globals
+```scss
+// Global AncestorCloud Colors
+// ==========================================================================
+
+$clr-blue:          #4FC1E9;
+$clr-dark-blue:     #3BAFDA;
+
+$clr-navy:          #477EA8;
+$clr-dark-navy:     #345C7C;
+
+$clr-mint:          #48CFAD;
+$clr-dark-mint:     #37BC9B;
+```
+
+####2. TOOLS
+Primarily collections of mixins (should *not* produce any CSS) that have broad application such as:
++ centering
++ media queries
++ vendor prefixing
++ site rhythm
++ normalization & defaults
+```scss
+// Center vertically and/or horizontally an absolute positioned element
+// ==========================================================================
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
+```
+
+####3. GENERIC
+Ground zero, far reaching styling with low specificty selectors like '*' & tag names. Good for:
++ normalizing
++ resets
+```scss
+html {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+* {
+
+    &,
+    &:before,
+    &:after {
+        -webkit-box-sizing: inherit;
+           -moz-box-sizing: inherit;
+                box-sizing: inherit;
+        }
+
+}
+```
+
+####4. BASE
+Any unclassed HTML elements such as:
++ H1-H6
++ basic links
++ lists
+```scss
+/*------------------------------------*\
+    #TYPOGRAPHY_BASE
+\*------------------------------------*/
+
+// Global Font
+// ==========================================================================
+html {
+    @include font-smoothing();
+    font-family: $base-font-family;
+    text-rendering: optimizeLegibility;
+}
+
+// Headers
+// ==========================================================================
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $header-font-weight;
+}
+```
+####5. Objects
+Design patterns that provide structure. No cosmetics. Naming Agnostic. such as:
++ [Media](http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/) object
++ types of list: inlined or blocked
++ blocks (images with text underneath)
+```scss
+/**
+ * Styling for Media object
+ * 
+ * Borrowed from:
+ * https://github.com/inuitcss/objects.media
+ */
+
+.Media {
+	display: block;
+}
+
+.Media_img,
+.Media_bdy {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.Media_img {
+	margin-right: 8px;
+}
+
+.Media_img > img {
+	display: block;
+}
+
+.Media_bdy {
+	overflow: hidden;
+}
+
+.Media_bdy,
+.Media_bdy > :last-child {
+	margin-bottom: 0;
+}
+```
+
+####6. Components
+Designed pieces of UI.
+
+see [Atomic Design](#atomic)
+####7. Trumps
+Overrides & helper classes. Usually carry !important on them. Very high specificity:
++ spacing
++ widths
++ show/hide
+```scss
+[class~="mt"] {
+ margin-top: 10px !important;
+}
+
+[class~="1/2"] {
+  width: 50% !important;
+}
+
+.hidden {
+  display: none !important;
+}
+```
+
+#<a name="atomic"></a>Atomic Design
+
+
