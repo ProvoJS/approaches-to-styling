@@ -10,47 +10,30 @@ var uglify = require('gulp-uglify');
 var eslint = require('gulp-eslint');
 
 
-// FILES OBJECTS
-var styles = {
-	src: 'src/styles',
-	dest: 'public/styles',
-	srcFiles: ["reset.styl", "global.styl", '*.styl'],
-	getFiles: function(){
-		var files = [];
-		this.srcFiles.forEach(function(file){
-			files.push(styles.src + "/" + file);
-		});
-		return files;
-	}
+
+// VIEW MANAGEMENT
+var views = {
+	home: {
+		styles: ["home.styl"],
+		scripts: ["src/scripts/background-info.js"],
+	},
+	"404": {
+		styles: ["src/styles/404.styl"],
+		scripts: [],
+	},
 };
 
-var scripts = {
-	src: 'src/scripts',
-	dest: 'public/scripts',
-	srcFiles: ['*.js'],
-	libs: ["*.js"],
-	getFiles: function(includeLibs){
-		var files = [];
-
-		if(includeLibs){
-			this.libs.forEach(function(file){
-				files.push(scripts.src + "/libs/" + file);
-			});
-		}
-
-		this.srcFiles.forEach(function(file){
-			files.push(scripts.src + "/" + file);
-		});
-
-		return files;
-	}
-};
+var baseStyles = [
+	"src/styles/reset.styl", 
+	"src/styles/global.styl"
+];
 
 
 
-// GULP TASKS
-gulp.task('styles', function() {
-	return gulp.src(styles.getFiles())
+
+// GLOBAL FUNCTIONS
+function styles(view, renameFile) {
+	return gulp.src( baseStyles.concat(views[view].styles) )
 	.pipe(plumber())
 	.pipe(sourcemaps.init())
 	.pipe(concat("styles.styl"))
@@ -58,33 +41,63 @@ gulp.task('styles', function() {
 	.pipe(sourcemaps.write())
 	.pipe(autoprefixer())
 	.pipe(minifyCss())
-	.pipe(rename("styles.min.css"))
-	.pipe(gulp.dest(styles.dest));
-});
+	.pipe(rename(renameFile))
+	.pipe(gulp.dest('public/styles'));
+}
 
-
-gulp.task('scripts', ['scriptLinter'], function(){
-	return gulp.src(scripts.getFiles(true))
+function scripts(view, renameFile) {
+	var _scripts = (["src/scripts/libs/*.js"]).concat(views[view].scripts);
+	console.log("_scripts=>",_scripts)
+	return gulp.src( (["src/scripts/libs/*.js"]).concat(views[view].scripts) )
 	.pipe(plumber())
 	.pipe(uglify())
-	.pipe(concat("scripts.min.js"))
-	.pipe(gulp.dest(scripts.dest));
-});
+	.pipe(concat(renameFile))
+	.pipe(gulp.dest("public/scripts"));
+}
 
-
-gulp.task('scriptLinter', function(){
-	console.log("* ESLint ON *");
-	return gulp.src(scripts.getFiles(false))
+function linter(view) {
+	return gulp.src( views[view].scripts )
 	.pipe(plumber())
-	.pipe(eslint({"configFile":".eslintrc"}))
+	.pipe(eslint({"configFile": ".eslintrc"}))
 	.pipe(eslint.format())
 	.pipe(eslint.failOnError());
+}
+
+
+
+
+
+// STYLE TASKS
+gulp.task('homeStyles', function(){
+	return styles("home", "home.min.css");
+});
+
+gulp.task('404Styles', function(){
+	return styles("404", "404.min.css");
 });
 
 
-gulp.task('watch', function(){
-	gulp.watch(styles.src+"/*.styl", ["styles"]);
-	gulp.watch(scripts.src+"/*.js", ["scripts"]);
-})
 
-gulp.task('default', ["styles", "scripts", "watch"]);
+
+
+// SCRIPT TASKS
+gulp.task('homeScripts', ['homeLinter'], function(){
+		return scripts("home", "scripts.min.js");
+});
+
+gulp.task('homeLinter', function(){
+	return linter("home");
+});
+
+
+
+// WATCH TASK
+gulp.task('watch', function(){
+	gulp.watch("src/styles/*.styl", ["homeStyles, 404Styles"]);
+	gulp.watch("src/scripts/*.js", ["homeScripts"]);
+});
+
+
+// DEFAULT TASK
+gulp.task('default', ["homeStyles", "404Styles", "homeScripts", "watch"]);
+
