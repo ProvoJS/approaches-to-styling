@@ -18,7 +18,7 @@ Now open your web browser to [http://localhost:3000](http://localhost:3000).
 
 ## Essential Links
 
-[css guidlines](http://csswizardry.com/2014/08/css-guidelines-2-0-0/)
+[css guidelines](http://csswizardry.com/2014/08/css-guidelines-2-0-0/)
 
 [About HTML semantics and front-end architecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 
