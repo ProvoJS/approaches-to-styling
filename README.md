@@ -25,8 +25,39 @@ Now open your web browser to [http://localhost:3000](http://localhost:3000).
 [CSS Modules](http://glenmaddern.com/articles/css-modules)
 
 ## CSS Frameworks
-[bootstrap](http://getbootstrap.com/)
 
-[foundation](http://foundation.zurb.com/)
+#### Bootstrap
+##### upsides
+* Gets you up and going with styles for free
+* Most popular -> very good support
+##### downsides
+* Hard to make work for heavily customized sites
+* Most popular -> your apps look a lot like everyone elses
+* Heavy, lots of code that gets unused
 
+Link: [bootstrap](http://getbootstrap.com/)
+
+#### Foundation
+##### upsides
+* Up and going with styles for free
+* Different styles than bootstrap
+##### downsides
+* Hard to make work for heavily customized sites
+Link: [foundation](http://foundation.zurb.com/)
+
+#### Materialize
+##### upsides
+* Visually appealing styles out of the box
+##### downside
+* Opinionated on styling
+
+Link: [materialize](http://materializecss.com/)
+
+##### upsides
+* Not opinionated about styles
+* Small, modular, & light weight
+
+##### downsides
+* requires bower as a package manage
+* More advanced learning curve
 [inuit css](https://github.com/csswizardry/inuit.css/)
