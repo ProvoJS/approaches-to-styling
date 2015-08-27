@@ -43,6 +43,7 @@ Link: [bootstrap](http://getbootstrap.com/)
 * Different styles than bootstrap
 ##### downsides
 * Hard to make work for heavily customized sites
+
 Link: [foundation](http://foundation.zurb.com/)
 
 #### Materialize
@@ -60,4 +61,5 @@ Link: [materialize](http://materializecss.com/)
 ##### downsides
 * requires bower as a package manage
 * More advanced learning curve
-[inuit css](https://github.com/csswizardry/inuit.css/)
+
+Link: [inuit css](https://github.com/csswizardry/inuit.css/)
