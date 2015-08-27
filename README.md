@@ -16,28 +16,10 @@ npm start
 
 Now open your web browser to [http://localhost:3000](http://localhost:3000).
 
-## Example 1: For Beginners
+## Essential Links
 
-TODO: add information
+[css guidlines](http://csswizardry.com/2014/08/css-guidelines-2-0-0/)
 
-### Resources and Articles
+[About HTML semantics and front-end architecture](http://nicolasgallagher.com/about-html-semantics-front-end-architecture/)
 
-TODO: add links
-
-
-## Example 2: Using Pre-Processors
-
-TODO: add information
-
-### Resources and Articles
-
-TODO: add links
-
-
-## Example 3: Using postCSS and inline styles
-
-TODO: add information
-
-### Resources and Articles
-
-TODO: add links
+[CSS Modules](http://glenmaddern.com/articles/css-modules)
