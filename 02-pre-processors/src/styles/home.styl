@@ -1,0 +1,137 @@
+section.banner
+	height 350px
+	width 100%
+	background-image url(ImagesPath + "adventure-time.jpg")
+	background-position center
+	background-size cover
+	background-repeat no-repeat
+	position relative
+	&:after
+		thisHeight = 30px
+		content ""
+		width 100%
+		display block
+		position absolute
+		height thisHeight
+		background PrimaryColor
+		bottom -(thisHeight/2)
+	
+section.user-img
+	thisHeight = 250px
+	height thisHeight
+	width 100%
+	margin-top -(thisHeight/2)
+	div.container
+		width thisHeight
+		height thisHeight
+		margin 0 auto
+		// background lime
+		border-radius 50%
+		box-sizing border-box
+		border 7px solid SecondaryColor
+		overflow hidden
+		box-shadow 0 2px 15px rgba(0,0,0,.4)
+		img.user-img
+			width 100%
+			height 100%
+			// filter contrast(110%)
+			
+section.user-name
+	padding 30px 0
+	h1
+		color rgb(70,70,70)
+		font-weight 500
+		font-size 3.5em
+		text-align center
+
+
+section.user-bio
+	padding 25px 0
+	background SecondaryColor
+	div.user-bio
+		color white
+		font-size 1.5em
+		line-height 1.1em
+		font-weight 500
+		max-width 900px
+		margin 0 auto
+		width 90%
+		text-align center
+		@media screen and (max-width:800px)
+			font-size 1.2em
+
+
+section.user-background
+	padding 35px 0
+	form
+		thisHeight = 50px
+		width 90%
+		height 50px
+		margin 0 auto 20px
+		// background lime
+		input#user-background-input
+			outline 2px solid darken(MainGray, 15%)
+			border none
+			height 100%
+			width 85%
+			font-size 30px
+			text-indent 3px
+			height thisHeight
+			line-height thisHeight
+		input#user-background-submit
+			outline 2px solid darken(PrimaryColor, 5%)
+			border none
+			height 100%
+			width 10%
+			float right
+			font-size 22px
+			background-color PrimaryColor
+			color white
+	div.output
+		width 75%
+		left 5%
+		position relative
+		border 2px solid PrimaryColor
+		background-color rgb(250,250,250)
+		padding 10px
+		font-size 25px
+		
+			
+section.tech-stack
+	padding 35px 0
+	background-color MainGray
+	border-bottom 25px solid PrimaryColor
+	div.container
+		width 90%
+		margin 0 auto
+		div.item
+			thisHeight = 150px
+			// border 2px solid PrimaryColor
+			// border-radius 3px
+			margin 0 auto 10px
+			height thisHeight
+			position relative
+			&:after
+				content ""
+				display block
+				clear both
+			img.item-image
+				float left
+				height thisHeight
+				top thisHeight/2
+				// background red
+			div.item-name
+				float left
+				height thisHeight
+				line-height thisHeight
+				margin-left 25px
+				font-size 25px
+				// transform translateY(-50%)
+
+
+
+
+
+
+
+			

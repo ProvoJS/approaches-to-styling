@@ -1,0 +1,88 @@
+/* APP GLOBAL VARS */
+
+// LAYOUT
+// --------------
+MaxWidth = 2400px
+MinWidth = 400px
+
+body
+	max-width MaxWidth
+	width 100%
+	min-width MinWidth
+	margin 0 auto
+	section
+		width 100%
+		max-width MaxWidth
+		position relative
+		z-index 0
+		h2
+			font-size 2em
+			color rgb(70, 70, 70)
+			font-weight 500
+			width 95%
+			margin 0 auto 20px
+			padding 0
+
+
+// COLORS
+// --------------
+PrimaryColor = rgb(63,151,197)
+SecondaryColor = darken(PrimaryColor, 25%)
+MainGray = rgb(240,240,240)
+
+html, body 
+	background-color rgb(255,255,255)
+
+
+// FONTS
+// --------------
+FontStack = "Gotham", "Lato", "Helvetica Neue", "San-serif"
+FontPath = "../fonts/"
+
+@font-face
+	font-family "Gotham"
+	src url(FontPath + "Gotham-Black.woff2") format("woff2"),
+		url(FontPath + "Gotham-Black.woff") format("woff")
+	font-weight 700
+	font-style normal
+	
+@font-face
+	font-family "Gotham"
+	src url(FontPath + "Gotham-Bold.woff2") format("woff2"),
+		url(FontPath + "Gotham-Bold.woff") format("woff")
+	font-weight 600
+	font-style normal
+	
+@font-face
+	font-family "Gotham"
+	src url(FontPath + "Gotham-Medium.woff2") format("woff2"),
+		url(FontPath + "Gotham-Medium.woff") format("woff")
+	font-weight 500
+	font-style normal
+	
+@font-face
+	font-family "Gotham"
+	src url(FontPath + "Gotham-Book.woff2") format("woff2"),
+		url(FontPath + "Gotham-Book.woff") format("woff")
+	font-weight 400
+	font-style normal
+	
+@font-face
+	font-family "Gotham"
+	src url(FontPath + "Gotham-XLight.woff2") format("woff2"),
+		url(FontPath + "Gotham-XLight.woff") format("woff")
+	font-weight 300
+	font-style normal
+	
+body
+	font-family FontStack
+	*
+		font-family inherit
+
+
+// Images
+// --------------
+ImagesPath = "../images/"
+
+
+
